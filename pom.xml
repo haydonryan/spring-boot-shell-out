@@ -9,13 +9,13 @@
 	<packaging>jar</packaging>
 
 	<name>shellout-java</name>
-	<description>This is an application to test shelling out in a cloud foundry conatiner</description>
+	<description>This is an application to test shelling out in a cloud foundry container</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.7.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
@@ -42,19 +42,47 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+
 			</plugin>
-		</plugins>
-		
-	<resources>
-		<resource>
-			<directory>target</directory>
-				<includes>
-					<include>cfmgmt</include>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<finalName>shellout.jar</finalName>
+					<descriptors>
+						<descriptor>descriptor.xml</descriptor>
+					</descriptors>
+
+					<archive>
+						<manifest>
+							<mainClass>org.springframework.boot.loader.JarLauncher</mainClass>
+						</manifest>
+
+						<manifestEntries>
+							<Start-Class>com.example.demo.ShelloutJavaApplication</Start-Class>
+							<Spring-Boot-Version>1.5.7.RELEASE</Spring-Boot-Version>
+							<Spring-Boot-Classes>BOOT-INF/classes/</Spring-Boot-Classes>
+							<Spring-Boot-Lib>BOOT-INF/lib/</Spring-Boot-Lib>
+							<Created-By>Apache Maven 3.5.0</Created-By>
+							<Build-Jdk>1.8.0_144</Build-Jdk>
+						</manifestEntries>
+					</archive>
 					
-				</includes>
-				
-      	</resource>
-    </resources>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+
+
 	</build>
 
 
