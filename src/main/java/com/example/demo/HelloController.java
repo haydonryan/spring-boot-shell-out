@@ -83,8 +83,6 @@ public class HelloController {
 
     @RequestMapping("/")
     public String index() {
-    		
-        return "Greetings from Spring Boot!" + "\n\n" + directory() + "\n\n" + cfmgmt() + git(); 
+        return "Greetings from Spring Boot!" + "\n\n" + directory() +  "\n\n" + cfmgmt() + "\n\n" + git();
     }
-
 }
