@@ -1,0 +1,31 @@
+<assembly>
+    <id>jar-with-dependencies</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+   
+   <dependencySets>
+		<dependencySet>
+			<useProjectArtifact />
+			<includes>
+				<include>${project.groupId}:${project.artifactId}</include>
+			</includes>
+			<unpack>true</unpack>
+			<outputDirectory>/</outputDirectory>
+		</dependencySet>
+	</dependencySets>
+   
+    
+    <fileSets>
+       	    <!-- Add extra files (cfmgmt) -->
+        <fileSet>
+            <directory>bins/</directory>      
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>cfmgmt</include>
+            </includes>  
+            <fileMode>0777</fileMode>
+        </fileSet>        
+    </fileSets>
+</assembly>
