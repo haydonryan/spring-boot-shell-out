@@ -38,7 +38,7 @@ public class HelloController {
 	public String cfmgmt() {
 		String r="";
 
-		String cmd = "BOOT-INF/classes/cfmgmt";
+		String cmd = "./cfmgmt";
 		Runtime run = Runtime.getRuntime();
 		try {
 			Process pr = run.exec(cmd);
