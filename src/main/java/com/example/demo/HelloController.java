@@ -14,7 +14,7 @@ public class HelloController {
 	public String directory() {
 		String r="";
 
-		String cmd = "ls -l BOOT-INF/";
+		String cmd = "ls -lR";
 		Runtime run = Runtime.getRuntime();
 		try {
 			Process pr = run.exec(cmd);
