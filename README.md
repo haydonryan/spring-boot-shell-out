@@ -2,7 +2,9 @@
 
 This project is a POC for a customer who wanted to understand how to build a Command Line Interface (CLI) Wrapper in Spring Boot for pushing to Pivotal Cloud Foundry.  Their use case was that they wanted to use https://github.com/pivotalservices/cf-mgmt and git to create a web service to manage their Orgs and Spaces within Cloud Foundry.
 
-# How to use the POC
+This framework could be used as a wrapper for any CLI in a conatiner, pushed to Cloud Foundry.  This could allow you to automate environments any CLI to perform the actual execution while avoinding having to use the API (if available, and supported) directly.  There are much better ways of doing this if the wrapper was written in go using vendoring.
+
+# How to use this Code
 
 ``` 
 maven clean package
